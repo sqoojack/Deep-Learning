@@ -17,8 +17,7 @@ And also preprocess the dataset like image flipping and image scaling.
 - Finally use Dice score to evaluate model’s performance.
 
 ### Lab4:
-
-- Need to implement conditional video prediction in a VAE-based model.
+Implemented a conditional VAE-based video prediction model with KL annealing and teacher forcing strategies, achieving strong reconstruction quality with a PSNR of over 29.
 
 ### Lab5:
 
@@ -27,4 +26,9 @@ And also preprocess the dataset like image flipping and image scaling.
 - **Focus on:** Multi-head attention, transformer training, and inference inpainting.
 
 ### Lab6:
-- Need to implement a Denoising Diffusion Probabilistic Model (DDPM) to generate synthetic images.
+I implemented a conditional DDPM using UNet2DModel and DDPMScheduler from Hugging Face, instead of directly using the default DDPMPipeline.
+
+And this Conditional DDPM can generate images based on given one-hot encoded class labels.
+And train the model to learn the denoising process (i.e how to recover clean images from noisy ones.)
+During testing, generate new images by starting from pure noise and denoising step-by-step using the learned model, guided by the input labels.
+Finally, the conditional DDPM achieved **an accuracy of 0.8594**, indicating correct object composition in the generated images.
